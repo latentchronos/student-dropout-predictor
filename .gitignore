@@ -1,0 +1,16 @@
+# Virtual Environments
+.venv/
+venv/
+
+# Python Caches
+__pycache__/
+*.pyc
+
+# Jupyter Caches
+.ipynb_checkpoints/
+
+# VSCode Settings
+.vscode/
+
+# CatBoost temporary files
+catboost_info/
