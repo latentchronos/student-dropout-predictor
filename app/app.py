@@ -1,24 +1,22 @@
-#pip install streamlit
 import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
 import os
 
-# --- Constants ---
+# Constants
 MODEL_DIR = 'models/'
 DATA_DIR = 'data/'
 
-# Define the paths to your artifacts
+# Paths to the artifacts
 PREPROCESSOR_PATH = os.path.join(MODEL_DIR, 'preprocessor.joblib')
 MODEL_PATH = os.path.join(MODEL_DIR, 'best_model.joblib')
 LABEL_ENCODER_PATH = os.path.join(MODEL_DIR, 'label_encoder.joblib')
 
-# --- Load Artifacts ---
-# Use st.cache_resource for efficient loading
+# Loading Artifacts
+# st.cache_resource is best for efficient loading
 @st.cache_resource
 def load_artifacts():
-    """Loads the preprocessor, model, and label encoder."""
     try:
         preprocessor = joblib.load(PREPROCESSOR_PATH)
         model = joblib.load(MODEL_PATH)
@@ -35,11 +33,10 @@ preprocessor, model, label_encoder = load_artifacts()
 if preprocessor is None:
     st.stop()
     
-# Get the class names (e.g., ['Dropout', 'Enrolled', 'Graduate'])
+# Getting the class names
 class_names = label_encoder.classes_
 
-# --- Feature Lists (from Phase 2) ---
-# These must be in the *exact* same order as in training
+# Feature Lists (from Phase 2)
 numerical_cols = [
     'Application order', 'Age at enrollment', 'Admission grade',
     'Previous qualification (grade)',
@@ -60,26 +57,26 @@ categorical_cols = [
     'Tuition fees up to date', 'Gender', 'Scholarship holder', 'International'
 ]
 
-# --- Helper Function for User Inputs ---
+# Function for getting user inputs
 def get_user_inputs():
-    """
-    Creates the sidebar widgets and returns a dictionary of user inputs.
-    """
+
     st.sidebar.header("Enter Student Data")
     
-    # We will store all inputs in a dictionary
+
     inputs = {}
     
-    # --- Demographics & Personal ---
+    # Demographics & Personal
     st.sidebar.subheader("Demographics")
     inputs['Age at enrollment'] = st.sidebar.slider("Age at Enrollment", 17, 70, 20)
     
-    # Note: For coded values, we use number_input or selectbox
-    # 1 = male, 0 = female
+    
     gender_map = {0: "Female", 1: "Male"}
     inputs['Gender'] = st.sidebar.selectbox("Gender", options=[0, 1], format_func=lambda x: gender_map[x])
     
     # 1 = single, 2 = married, 3 = widower, 4 = divorced, 5 = facto union, 6 = legally separated
+    #marital_stat = {1: "single", 2: "married", 3: "widower", 4: "divorced", 5: "facto union", 6: "legally separated"}
+    #inputs['Marital Status'] = st.sidebar.selectbox("Marital Status", options=[0, 1, 2, 3, 4, 5, 6], format_func=lambda x: marital_stat[x])
+
     inputs['Marital Status'] = st.sidebar.number_input("Marital Status (1-6)", min_value=1, max_value=6, value=1)
     
     # Coded value
