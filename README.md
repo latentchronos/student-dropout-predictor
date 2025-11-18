@@ -20,8 +20,6 @@ Model Showdown: In 2_Model_Training.ipynb, you'll see how 10 different ML models
 Get familiar with how the files are organized. This is a standard layout for an ML project:
 <img width="692" height="358" alt="image" src="https://github.com/user-attachments/assets/10e444f8-0b70-497d-84e6-a54287b0a684" />
 
-
-
 **Methodology: A Step by Step Guide:**
 To understand the project, follow the same steps we did. I've split the work into two main notebooks.
 
