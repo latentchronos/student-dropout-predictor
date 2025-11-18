@@ -122,7 +122,7 @@ Your web browser will automatically open. Go ahead and test your new app.
 
 
 
-**Technologies You Will Use:**
+**🛠️ Technologies You Will Use:**
 Python 3.10+
 
 Data Analysis: Pandas, NumPy
