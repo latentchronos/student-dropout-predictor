@@ -17,11 +17,11 @@ Model Showdown: In 2_Model_Training.ipynb, you'll see how 10 different ML models
 
 
 **📁 Understand the Folder Structure:**
-Get familiar with how the files are organized. This is a standard layout for an ML project:
+Get familiar with how the files are organized:
 <img width="692" height="358" alt="image" src="https://github.com/user-attachments/assets/10e444f8-0b70-497d-84e6-a54287b0a684" />
 
 **Methodology: A Step by Step Guide:**
-To understand the project, follow the same steps we did. I've split the work into two main notebooks.
+To understand the project. I've split the work into two main notebooks.
 
 **Step 1:** Understand the Data (EDA)
 File: notebooks/1_EDA_and_Preprocessing.ipynb
@@ -39,9 +39,9 @@ File: (Still in) notebooks/1_EDA_and_Preprocessing.ipynb
 
 After the analysis, you'll see the data cleaning steps. Pay close attention to these:
 
-Building a Pipeline: Look for the ColumnTransformer. This is the professional way to handle preprocessing. It automatically applies StandardScaler to all number columns and OneHotEncoder to all category columns.
+Building a Pipeline: Look for the ColumnTransformer. It automatically applies StandardScaler to all number columns and OneHotEncoder to all category columns.
 
-Handling Imbalance (SMOTE): This is our solution to the imbalance problem. Look for the SMOTE code. You'll see it's only applied to the training data, which is a critical best practice.
+Handling Imbalance (SMOTE): This is the solution to the imbalance problem. Look for the SMOTE code. You'll see it's only applied to the training data, which is a critical best practice.
 
 **Step 3:** Train and Compare Models
 File: notebooks/2_Model_Training.ipynb
